@@ -16,3 +16,9 @@ print (new_list)
 x=np.array([1,3,5,7,9])
 y=np.array([2,4,6,8,10])
 print(x*y)
+# type of elements in an array
+variable=[5.8,7,0,6] 
+print(type(variable[0]))
+new_variable=np.array([5.8,7,0,6])
+print(new_variable)
+print(type(new_variable[0]))
