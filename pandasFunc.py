@@ -137,3 +137,36 @@ print(df4)
 print(df4.drop([2,5],axis=0))#this is again temprary and will not affect the datastructure
 print(df4.drop([2,5],axis=0, inplace=True))#this will
 print(df4)
+
+# Fillna()
+df4["VAL1"]=np.nan
+print(df4)
+df4.fillna(1000,inplace=True)
+print(df4)
+df4["VAL1"]=np.nan
+print(df4)
+# df4.fillna(df4.mean(),inplace=True) kind of doubt full
+# print(df4)
+
+# Setting the index
+df4.reset_index(drop=True,inplace=True)#deletes the old index
+print(df4)
+
+# multi indexing
+inside=["class a ","class b","class c","class a","class b","class c"]
+outside=["school 1","school 1","school 1","school 2","school 2","school 2"]
+zip(outside,inside)
+multiIndex=list(zip(outside,inside))
+hierIndex=pd.MultiIndex.from_tuples(multiIndex)
+np.random.seed(101)
+df5=pd.DataFrame(np.random.randint(70,100,size=(6,2)),index=hierIndex,columns=["1st sem","2nd sem"])
+print(df5)
+
+# element selection in multiIndex df
+print(df5[["1st sem"]])
+print(df5.loc["school 1"].loc["class b"])
+print(df5.index.names)
+print(df5.xs("school 2"))
+print(df5.xs(("school 2","class a"),level=[0,1]))
+
+# concatenation of datafarmes
