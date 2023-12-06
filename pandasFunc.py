@@ -170,3 +170,19 @@ print(df5.xs("school 2"))
 print(df5.xs(("school 2","class a"),level=[0,1]))
 
 # concatenation of datafarmes
+print(pd.concat([df3,df4]))
+print(pd.concat([df3,df4],ignore_index=True))
+
+# Merge
+print(pd.merge(df3,df4))
+# you can specify on which columns you want to merger for example "pd.merge(df1,df2,on="columnName")"
+
+# Loading Dataset from Seaborn Library
+import seaborn as sns
+# seaborn- satistical python data visualisation almost like matplotlib
+DF=sns.load_dataset("diamonds")
+print(DF)
+
+# Aggregate functions
+# mean(), median(), sum(), max(), min(), count(), var(), std()
+print(sns.distplot(DF["price"]))
